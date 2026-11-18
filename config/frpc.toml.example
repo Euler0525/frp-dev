@@ -1,0 +1,21 @@
+# Private Linux host. Use the public server's address and token.
+serverAddr = "REPLACE_WITH_PUBLIC_SERVER_IP_OR_DOMAIN"
+serverPort = 7000
+loginFailExit = false
+
+auth.method = "token"
+auth.token = "REPLACE_WITH_THE_SAME_RANDOM_TOKEN_ON_BOTH_HOSTS"
+auth.additionalScopes = ["HeartBeats", "NewWorkConns"]
+
+transport.tls.enable = true
+
+log.to = "console"
+log.level = "info"
+
+[[proxies]]
+# Use a unique name and remote port for every private host.
+name = "ssh-machine-a"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 22
+remotePort = 6000

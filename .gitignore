@@ -1,0 +1,8 @@
+# Local credentials and deployment files.
+/frps.toml
+/frpc.toml
+*.local.toml
+.env
+*.key
+*.pem
+id_ed25519*

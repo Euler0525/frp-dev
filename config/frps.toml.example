@@ -1,0 +1,23 @@
+# Public Linux server. Replace the token before installation.
+bindAddr = "0.0.0.0"
+bindPort = 7000
+
+# Allow only the TCP ports assigned to your clients.
+allowPorts = [{ single = 6000 }]
+
+auth.method = "token"
+auth.token = "REPLACE_WITH_THE_SAME_RANDOM_TOKEN_ON_BOTH_HOSTS"
+auth.additionalScopes = ["HeartBeats", "NewWorkConns"]
+
+transport.tls.force = true
+
+# Keep this listener private; use SSH forwarding or an HTTPS reverse proxy.
+# Use a separate password, not the FRP token. Remove this block to disable it.
+webServer.addr = "127.0.0.1"
+webServer.port = 7500
+webServer.user = "admin"
+webServer.password = "REPLACE_WITH_A_SEPARATE_DASHBOARD_PASSWORD"
+webServer.assetsDir = "/usr/local/share/frp-deploy/dashboard"
+
+log.to = "console"
+log.level = "info"
